@@ -1,23 +1,33 @@
 package vttp2022.csf.assessment.server.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
 
 import vttp2022.csf.assessment.server.models.Comment;
 import vttp2022.csf.assessment.server.models.Restaurant;
 
+@Repository
 public class RestaurantRepository {
+
+	@Autowired
+	private MongoTemplate mongoTemplate;
 
 	// TODO Task 2
 	// Use this method to retrive a list of cuisines from the restaurant collection
 	// You can add any parameters (if any) and the return type 
 	// DO NOT CHNAGE THE METHOD'S NAME
 	// Write the Mongo native query above for this method
-	//  
-	public ??? getCuisines(???) {
+	//  db.restaurants.distinct("cuisine")
+	public List<String> getCuisines() {
 		// Implmementation in here
-
+		return
+		mongoTemplate.findDistinct(new Query(), "cuisine", "restaurants", String.class);
 	}
 
 	// TODO Task 3
@@ -26,7 +36,7 @@ public class RestaurantRepository {
 	// DO NOT CHNAGE THE METHOD'S NAME
 	// Write the Mongo native query above for this method
 	//  
-	public ??? getRestaurantsByCuisine(???) {
+	public void getRestaurantsByCuisine() {
 		// Implmementation in here
 
 	}
@@ -37,9 +47,9 @@ public class RestaurantRepository {
 	// DO NOT CHNAGE THE METHOD'S NAME OR THE RETURN TYPE
 	// Write the Mongo native query above for this method
 	//  
-	public Optional<Restaurant> getRestaurant(???) {
+	public Optional<Restaurant> getRestaurant() {
 		// Implmementation in here
-		
+		return null;
 	}
 
 	// TODO Task 5

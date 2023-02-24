@@ -1,1 +1,9 @@
-<p>cuisine-list works!</p>
+
+<h2>List of Cuisines</h2>
+
+<div *ngIf="cuisines">
+    <div *ngFor="let cuisine of cuisines">
+        {{ cuisine }}
+    </div>
+</div>
+

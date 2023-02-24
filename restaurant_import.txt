@@ -1,1 +1,2 @@
 TODO: Task 1 - Write the mongo import command here
+>mongoimport --uri=mongodb+srv://lulu:lulululu@mycluster.pimpl5z.mongodb.net --drop -dassessment -c restaurants --jsonArray C:/Users/chen_/OneDrive/Desktop/Visa/projects/ClientSideFoundation(csf)/csf-assessment-template/restaurants.json
