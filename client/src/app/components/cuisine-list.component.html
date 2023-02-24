@@ -2,7 +2,8 @@
 <h2>List of Cuisines</h2>
 
 <div *ngIf="cuisines">
-    <div *ngFor="let cuisine of cuisines">
+    <div *ngFor="let cuisine of cuisines" (click)="getCuisine(cuisine)"
+    style="border: 1px solid black; padding: 5px">
         {{ cuisine }}
     </div>
 </div>

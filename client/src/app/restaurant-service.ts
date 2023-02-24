@@ -8,7 +8,6 @@ export class RestaurantService {
 
 	constructor(private http:HttpClient){}
 
-	// TODO Task 2 
 	// Use the following method to get a list of cuisines
 	// You can add any parameters (if any) and the return type 
 	// DO NOT CHNAGE THE METHOD'S NAME
@@ -17,14 +16,14 @@ export class RestaurantService {
 		return lastValueFrom( this.http.get<string[]>('/api/cuisines') )
 	}
 
-	// // TODO Task 3 
-	// // Use the following method to get a list of restaurants by cuisine
-	// // You can add any parameters (if any) and the return type 
-	// // DO NOT CHNAGE THE METHOD'S NAME
-	// public getRestaurantsByCuisine(???) {
-	// 	// Implememntation in here
-
-	// }
+	// TODO Task 3 
+	// Use the following method to get a list of restaurants by cuisine
+	// You can add any parameters (if any) and the return type 
+	// DO NOT CHNAGE THE METHOD'S NAME
+	public getRestaurantsByCuisine(cuisine:string): Promise<Restaurant[]> {
+		// Implememntation in here
+		return lastValueFrom( this.http.get<Restaurant[]>(`/api/${cuisine}/restaurants`))
+	}
 	
 	// // TODO Task 4
 	// // Use this method to find a specific restaurant

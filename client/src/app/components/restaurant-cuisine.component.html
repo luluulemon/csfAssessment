@@ -1,1 +1,12 @@
-<p>restaurant-cuisine works!</p>
+<h2>List of {{cuisine}} Restaurants</h2>
+
+<div *ngIf="restaurants">
+    <div *ngFor="let rest of restaurants" (click)="getRestaurant( rest.restaurantId )"
+    style="border: 1px solid black; padding:5px">
+        {{ rest.namd }}
+    </div>
+</div>
+
+<button type="button" [routerLink]="['']">BACK</button>
+
+

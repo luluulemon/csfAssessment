@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
@@ -35,10 +36,15 @@ public class RestaurantRepository {
 	// You can add any parameters (if any) and the return type 
 	// DO NOT CHNAGE THE METHOD'S NAME
 	// Write the Mongo native query above for this method
-	//  
-	public void getRestaurantsByCuisine() {
-		// Implmementation in here
+		// db.restaurants.find(
+		//	{ cuisine: 'Afghan'},
+		//	{ name: 1}	)
+	public List<Document> getRestaurantsByCuisine(String cuisine) {
+		// Get Obj with Name & Obj Id
+		Query query = Query.query(Criteria.where("cuisine").is(cuisine));
+		query.fields().include("name");
 
+		return mongoTemplate.find(query,Document.class,"restaurants");
 	}
 
 	// TODO Task 4

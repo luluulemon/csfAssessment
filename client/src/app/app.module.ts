@@ -13,7 +13,7 @@ import { RestaurantService } from './restaurant-service';
 
 const appRoutes:Routes = [
   { path: '', component: CuisineListComponent },
-  { path: 'restaurant', component:RestaurantCuisineComponent}
+  { path: 'restaurants/:cuisine', component:RestaurantCuisineComponent}
 ]
 
 @NgModule({
