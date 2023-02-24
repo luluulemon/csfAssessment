@@ -1,1 +1,45 @@
-<p>restaurant-details works!</p>
+
+
+<div>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>{{rest.namd}}</td>
+        </tr>
+        <tr>
+            <td>Cuisine:</td>
+            <td>{{rest.cusisine}}</td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>{{rest.address}}</td>
+        </tr>
+    </table>
+    <img src="" alt="">
+</div>
+<div>
+    <h3>Comment</h3>
+    <form [formGroup]="form">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" formControlName="name"></td>
+            </tr>
+            <tr>
+                <td>Rating:</td>
+                <td><select name="" id="" formControlName="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select></td>
+            </tr>
+        </table>
+        <textarea name="" id="" cols="30" rows="10" formControlName="text"></textarea>
+        <br>
+        <button [routerLink]="['/restaurants', cuisine]" type="button">BACK</button>
+        &nbsp;
+        <button type="button" (click)="submitComments()" [disabled]="form.invalid">SUBMIT</button>
+    </form>
+</div>

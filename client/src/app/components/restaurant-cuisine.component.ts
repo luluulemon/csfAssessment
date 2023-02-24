@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant } from '../models';
 import { RestaurantService } from '../restaurant-service';
 
@@ -15,7 +15,8 @@ export class RestaurantCuisineComponent {
   restaurants: Restaurant[] = []
   cuisine: string = ''
 
-  constructor(private activatedRoute:ActivatedRoute, private restSvc:RestaurantService){}
+  constructor(private activatedRoute:ActivatedRoute, private restSvc:RestaurantService,
+              private router:Router){}
 
   ngOnInit(){
     this.cuisine = this.activatedRoute.snapshot.params['cuisine']
@@ -27,5 +28,11 @@ export class RestaurantCuisineComponent {
 
   getRestaurant(id:string){
     console.info('check id:', id)
+    this.restSvc.getRestaurant(id)
+                .then(v => {
+                  this.restSvc.rest = v     // keep restaurant value with Svc
+                  this.router.navigate(['restDetails', this.cuisine])
+                })
+                .catch()
   }
 }
